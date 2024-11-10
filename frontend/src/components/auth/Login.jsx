@@ -8,7 +8,7 @@ function Login() {
     password: "",
   });
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -26,7 +26,7 @@ function Login() {
       setError("Invalid credentials. Please try again.");
       console.error(err);
     } finally {
-      setLoading(false); // Set loading to false when the request is done
+      setLoading(false);
     }
   };
 
@@ -49,7 +49,7 @@ function Login() {
       <main className="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
         {error && <div className="mb-4 text-red-500 text-center">{error}</div>}
         {loading && (
-          <div className="mb-4 text-blue-700 text-center">Logging in...</div> // Show message when loading
+          <div className="mb-4 text-blue-700 text-center">Logging in...</div>
         )}
         <form
           className="flex flex-col space-y-4"

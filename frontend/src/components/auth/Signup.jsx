@@ -9,10 +9,13 @@ function Signup() {
     password: "",
   });
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+
+    setLoading(true);
 
     try {
       await axiosInstance.post("/api/auth/signup", user);
@@ -24,6 +27,8 @@ function Signup() {
       } else {
         setError("Something went wrong. Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -45,6 +50,9 @@ function Signup() {
 
       <main className="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg">
         {error && <div className="mb-4 text-red-500 text-center">{error}</div>}
+        {loading && (
+          <div className="mb-4 text-blue-700 text-center">Signing up...</div>
+        )}
         <form
           className="flex flex-col space-y-4"
           onSubmit={handleSignUp}
