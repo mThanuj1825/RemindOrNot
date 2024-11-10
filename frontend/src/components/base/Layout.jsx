@@ -28,7 +28,7 @@ function Layout({ children }) {
           className="text-2xl sm:text-3xl md:text-4xl font-bold cursor-pointer"
           onClick={handleAppNameClick}
         >
-          RemindMeNot
+          RemindOrNot
         </h1>
         {sessionStorage.getItem("jwt") && (
           <div className="flex space-x-4 sm:space-x-6">
